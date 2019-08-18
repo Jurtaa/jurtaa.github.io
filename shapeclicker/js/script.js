@@ -10,13 +10,16 @@ triangleSPS=0;
 rectangleCost=150;
 rectangleCount=0;
 rectangleSPS=0;
+pentagonCost=1325;
+pentagonCount=0;
+pentagonSPS=0;
 function clicked(){
 	shapes=shapes+shapesPerClick
 	update()
 }
 
 function timer(){
-	shapesPerSecond=circleSPS+triangleSPS+rectangleSPS
+	shapesPerSecond=circleSPS+triangleSPS+rectangleSPS+pentagonSPS
 	shapes=shapes+(shapesPerSecond/100)
 	update()
 }
@@ -27,6 +30,7 @@ function update(){
 	document.getElementById("circleCost").innerHTML="Buy Circle - "+circleCost+" Shapes"
 	document.getElementById("triangleCost").innerHTML="Buy Triangle - "+triangleCost+" Shapes"
 	document.getElementById("rectangleCost").innerHTML="Buy Rectangle - "+rectangleCost+" Shapes"
+	document.getElementById("pentagonCost").innerHTML="Buy Pentagon - "+pentagonCost+" Shapes"
 	document.getElementById("shapes").innerHTML=(Math.round(shapes))+" Shapes"
 }
 
@@ -60,6 +64,18 @@ function rectangle(){
 		rectangleSPS=rectangleSPS+1
 		rectangleCount=rectangleCount+1
 		rectangleCost=Math.round(rectangleCost+(1.15*(rectangleCount*7.5)))
+		update()
+	}
+	else{
+	}
+}
+
+function pentagon(){
+	if (shapes>=pentagonCost){
+		shapes=shapes-pentagonCost
+		pentagonSPS=pentagonSPS+5
+		pentagonCount=pentagonCount+1
+		pentagonCost=Math.round(pentagonCost+(1.15*(pentagonCount*14.2)))
 		update()
 	}
 	else{
