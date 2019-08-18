@@ -1,31 +1,65 @@
 shapes=0;
 shapesPerClick=1;
 shapesPerSecond=0;
-circleCost=15;
+circleCost=10;
 circleCount=0;
+circleSPS=0;
+triangleCost=50;
+triangleCount=0;
+triangleSPS=0;
+rectangleCost=150;
+rectangleCount=0;
+rectangleSPS=0;
 function clicked(){
 	shapes=shapes+shapesPerClick
 	update()
 }
 
 function timer(){
+	shapesPerSecond=circleSPS+triangleSPS+rectangleSPS
 	shapes=shapes+(shapesPerSecond/100)
 	update()
 }
 setInterval(timer, 10)
 
 function update(){
-	document.getElementById("shapesPerSecond").innerHTML=(Math.round(shapesPerSecond*10)/10)+" Shapes Per Sec"
+	document.getElementById("shapesPerSecond").innerHTML=(Math.round(shapesPerSecond*10)/10)+"/s"
 	document.getElementById("circleCost").innerHTML="Buy Circle - "+circleCost+" Shapes"
-	document.getElementById("shapes").innerHTML=(Math.round(shapes*10)/10)+" Shapes"
+	document.getElementById("triangleCost").innerHTML="Buy Triangle - "+triangleCost+" Shapes"
+	document.getElementById("rectangleCost").innerHTML="Buy Rectangle - "+rectangleCost+" Shapes"
+	document.getElementById("shapes").innerHTML=(Math.round(shapes))+" Shapes"
 }
 
 function circle(){
 	if (shapes>=circleCost){
 		shapes=shapes-circleCost
-		shapesPerSecond=shapesPerSecond+0.1
+		circleSPS=circleSPS+0.1
 		circleCount=circleCount+1
-		circleCost=Math.round(circleCost+(1.15*circleCount))
+		circleCost=Math.round(circleCost+(1.15*(circleCount*1.2)))
+		update()
+	}
+	else{
+	}
+}
+
+function triangle(){
+	if (shapes>=triangleCost){
+		shapes=shapes-triangleCost
+		triangleSPS=triangleSPS+0.5
+		triangleCount=triangleCount+1
+		triangleCost=Math.round(triangleCost+(1.15*(triangleCount*3.2)))
+		update()
+	}
+	else{
+	}
+}
+
+function rectangle(){
+	if (shapes>=rectangleCost){
+		shapes=shapes-rectangleCost
+		rectangleSPS=rectangleSPS+1
+		rectangleCount=rectangleCount+1
+		rectangleCost=Math.round(rectangleCost+(1.15*(rectangleCount*7.5)))
 		update()
 	}
 	else{

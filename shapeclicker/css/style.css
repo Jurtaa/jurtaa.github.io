@@ -1,4 +1,30 @@
 body {
-  font-family: Tahoma, Geneva, sans-serif;
-  text-align: center;
+	font-family: Tahoma, Geneva, sans-serif;
+	text-align: center;
+}
+
+button {
+	background-color: #e3e3e3;
+	border: none;
+	padding: 6px 10px;
+	font-family: Tahoma, Geneva, sans-serif;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 6px;
+	transition-duration: 0.2s;
+	outline: none;
+}
+
+button:hover {
+	background-color: #e8e8e8;
+	border-radius: 4px;
+}
+
+button:active {
+	background-color: #d2d2d2;
+	border-radius: 8px;
 }
