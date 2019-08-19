@@ -39,7 +39,7 @@ function circle(){
 		shapes=shapes-circleCost
 		circleSPS=circleSPS+0.1
 		circleCount=circleCount+1
-		circleCost=Math.round(circleCost+(1.15*((circleCount*2)*1.2)))
+		circleCost=Math.round(circleCost+(1.15*((circleCount*1.5)*1.2)))
 		update()
 	}
 	else{
@@ -51,7 +51,7 @@ function triangle(){
 		shapes=shapes-triangleCost
 		triangleSPS=triangleSPS+0.5
 		triangleCount=triangleCount+1
-		triangleCost=Math.round(triangleCost+(1.15*((triangleCount*2)*3.2)))
+		triangleCost=Math.round(triangleCost+(1.15*((triangleCount*1.5)*3.2)))
 		update()
 	}
 	else{
@@ -63,7 +63,7 @@ function rectangle(){
 		shapes=shapes-rectangleCost
 		rectangleSPS=rectangleSPS+1
 		rectangleCount=rectangleCount+1
-		rectangleCost=Math.round(rectangleCost+(1.15*((rectangleCount*2)*7.5)))
+		rectangleCost=Math.round(rectangleCost+(1.15*((rectangleCount*1.5)*7.5)))
 		update()
 	}
 	else{
@@ -75,7 +75,7 @@ function pentagon(){
 		shapes=shapes-pentagonCost
 		pentagonSPS=pentagonSPS+5
 		pentagonCount=pentagonCount+1
-		pentagonCost=Math.round(pentagonCost+(1.15*((pentagonCount*2)*14.2)))
+		pentagonCost=Math.round(pentagonCost+(1.15*((pentagonCount*1.5)*14.2)))
 		update()
 	}
 	else{
