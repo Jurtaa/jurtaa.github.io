@@ -61,7 +61,7 @@ function triangle(){
 function rectangle(){
 	if (shapes>=rectangleCost){
 		shapes=shapes-rectangleCost
-		rectangleSPS=rectangleSPS+1
+		rectangleSPS=rectangleSPS+2
 		rectangleCount=rectangleCount+1
 		rectangleCost=Math.round(rectangleCost+(1.15*((rectangleCount*1.5)*7.5)))
 		update()
@@ -73,7 +73,7 @@ function rectangle(){
 function pentagon(){
 	if (shapes>=pentagonCost){
 		shapes=shapes-pentagonCost
-		pentagonSPS=pentagonSPS+5
+		pentagonSPS=pentagonSPS+6.5
 		pentagonCount=pentagonCount+1
 		pentagonCost=Math.round(pentagonCost+(1.15*((pentagonCount*1.5)*14.2)))
 		update()
