@@ -4,7 +4,7 @@ body {
 }
 
 button {
-	background-color: #e3e3e3;
+	background-color: #d9d9d9;
 	border: none;
 	padding: 6px 10px;
 	font-family: Tahoma, Geneva, sans-serif;
@@ -25,6 +25,24 @@ button:hover {
 }
 
 button:active {
-	background-color: #d2d2d2;
+	background-color: #cfcfcf;
 	border-radius: 8px;
+}
+
+#square {
+	width:100px;
+	height:100px;
+	background-color:#d9d9d9;
+	margin:auto;
+	transition-duration: 0.2s;
+	cursor: pointer;
+	outline: none;
+}
+
+#square:hover {
+	background-color:#e8e8e8;
+}
+
+#square:active {
+	background-color:#cfcfcf;
 }
