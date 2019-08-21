@@ -2,21 +2,27 @@ shapes=0;
 shapesPerClick=1;
 shapesPerSecond=0;
 shapesPSRounded=0;
+
 circleCost=10;
 circleCount=0;
 circleSPS=0;
+
 triangleCost=85;
 triangleCount=0;
 triangleSPS=0;
+
 rectangleCost=620;
 rectangleCount=0;
 rectangleSPS=0;
+
 pentagonCost=3200;
 pentagonCount=0;
 pentagonSPS=0;
+
 hexagonCost=10500;
 hexagonCount=0;
 hexagonSPS=0;
+
 heptagonCost=120000;
 heptagonCount=0;
 heptagonSPS=0;
@@ -126,11 +132,11 @@ function update(){
 	document.getElementById("pentagonCost").innerHTML="Buy Pentagon - "+numberWithCommas(abbreviate(pentagonCost, 2, false, false))+" Shapes"
 	document.getElementById("hexagonCost").innerHTML="Buy Hexagon - "+numberWithCommas(abbreviate(hexagonCost, 2, false, false))+" Shapes"
 	document.getElementById("heptagonCost").innerHTML="Buy Heptagon - "+numberWithCommas(abbreviate(heptagonCost, 2, false, false))+" Shapes"
-	document.getElementById("shapes").innerHTML=numberWithCommas(abbreviate(Math.round(shapes), 2, false, false))+" Shapes"
+	document.getElementById("shapes").innerHTML=numberWithCommas(abbreviate(Math.trunc(shapes), 2, false, false))+" Shapes"
 }
 
 function updateTitle(){
-	document.title=numberWithCommas(abbreviate((Math.round(shapes)), 2, false, false))+" Shapes"
+	document.title=numberWithCommas(abbreviate((Math.trunc(shapes)), 2, false, false))+" Shapes"
 }
 setInterval(updateTitle, 1000)
 

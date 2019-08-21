@@ -46,3 +46,13 @@ button:active {
 #square:active {
 	background-color:#cfcfcf;
 }
+
+#versionNumber {
+	position:absolute;
+	left:0px;
+	bottom:0px;
+	opacity:0.5;
+	margin:8px;
+	font-size:22px;
+	z-index:100000000;
+}

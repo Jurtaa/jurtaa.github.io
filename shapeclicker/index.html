@@ -1,32 +1,37 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-<link rel="manifest" href="favicon/site.webmanifest">
-<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#143a44">
-<meta name="msapplication-TileColor" content="#c3dcdc">
-<meta name="theme-color" content="#ffffff">
-<title>0 Shapes</title>
-<meta name="viewport" content="width=device-width, user-scalable=no">
-<link rel="stylesheet" href="css\style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#143a44">
+    <meta name="msapplication-TileColor" content="#c3dcdc">
+    <meta name="theme-color" content="#ffffff">
+    <title>0 Shapes</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link type="text/css" rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<script src="js\main.js"></script>
-<b><div id="shapes" style="line-height:32px;font-size:24px">0 Shapes</div></b>
-<div id="shapesPerSecond" style="line-height:24px;font-size:20px">0/s</div>
-<br>
-<div id="square" onclick="clicked()"></div>
-<h1>Store</h1>
-<button onclick="circle()" id="circleCost">Buy Circle - 10 Shapes</button>
-<button onclick="triangle()" id="triangleCost">Buy Triangle - 85 Shapes</button>
-<button onclick="rectangle()" id="rectangleCost">Buy Rectangle - 620 Shapes</button>
-<br>
-<button onclick="pentagon()" id="pentagonCost">Buy Pentagon - 3200 Shapes</button>
-<button onclick="hexagon()" id="hexagonCost">Buy Hexagon - 10500 Shapes</button>
-<button onclick="heptagon()" id="heptagonCost">Buy Heptagon - 120000 Shapes</button>
-<h1>Upgrades</h1>
-<p>Coming soon, probably.</p>
+    <script type="text/javascript" src="main.js"></script>
+    <b><div id="shapes" style="line-height:32px;font-size:24px">0 Shapes</div></b>
+    <div id="shapesPerSecond" style="line-height:24px;font-size:20px">0/s</div>
+    <br>
+    <div id="square" onclick="clicked()">
+	</div>
+    <h1>Store</h1>
+    <button onclick="circle()" id="circleCost">Buy Circle - 10 Shapes</button>
+    <button onclick="triangle()" id="triangleCost">Buy Triangle - 85 Shapes</button>
+    <button onclick="rectangle()" id="rectangleCost">Buy Rectangle - 620 Shapes</button>
+    <br>
+    <button onclick="pentagon()" id="pentagonCost">Buy Pentagon - 3200 Shapes</button>
+    <button onclick="hexagon()" id="hexagonCost">Buy Hexagon - 10500 Shapes</button>
+    <button onclick="heptagon()" id="heptagonCost">Buy Heptagon - 120000 Shapes</button>
+    <h1>Upgrades</h1>
+    <p>Coming soon, probably.</p>
+	<a href="changelog.html" id="versionNumber" style="color: #000; text-decoration: none">v. 0.26</a>
 </body>
+
 </html>
