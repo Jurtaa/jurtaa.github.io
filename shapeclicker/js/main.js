@@ -1,6 +1,7 @@
 shapes=0;
 shapesPerClick=1;
 shapesPerSecond=0;
+shapesPSRounded=0;
 circleCost=10;
 circleCount=0;
 circleSPS=0;
@@ -27,14 +28,23 @@ function abbreviate(number, maxPlaces, forcePlaces, forceLetter) {
 		return annotate(number, maxPlaces, forcePlaces, forceLetter)
 	}
 	var abbr
-	if(number >= 1e18) {
-		abbr = 'Q'
+	if(number >= 1e27) {
+		abbr = 'Oc'
+	}
+	else if(number >= 1e24) {
+		abbr = 'Sp'
+	}
+	else if(number >= 1e21) {
+		abbr = 'Sx'
+	}
+	else if(number >= 1e18) {
+		abbr = 'Qi'
 	}
 	else if(number >= 1e15) {
-		abbr = 'q'
+		abbr = 'Qa'
 	}
 	else if(number >= 1e12) {
-		abbr = 't'
+		abbr = 'T'
 	}
 	else if(number >= 1e9) {
 		abbr = 'B'
@@ -51,13 +61,22 @@ function abbreviate(number, maxPlaces, forcePlaces, forceLetter) {
 function annotate(number, maxPlaces, forcePlaces, abbr) {
 	var rounded = 0
 	switch(abbr) {
-		case 'Q':
+		case 'Oc':
+			rounded = number / 1e27
+			break
+		case 'Sp':
+			rounded = number / 1e24
+			break
+		case 'Sx':
+			rounded = number / 1e21
+			break
+		case 'Qi':
 			rounded = number / 1e18
 			break
-		case 'q':
+		case 'Qa':
 			rounded = number / 1e15
 			break
-		case 't':
+		case 'T':
 			rounded = number / 1e12
 			break
 		case 'B':
@@ -93,20 +112,21 @@ function clicked(){
 
 function timer(){
 	shapesPerSecond=circleSPS+triangleSPS+rectangleSPS+pentagonSPS+hexagonSPS+heptagonSPS
+	shapesPSRounded=Math.round(shapesPerSecond*10)/10
 	shapes=shapes+(shapesPerSecond/25)
 	update()
 }
 setInterval(timer, 40)
 
 function update(){
-	document.getElementById("shapesPerSecond").innerHTML=numberWithCommas(abbreviate((Math.round((shapesPerSecond*10)/10)), 2, false, false))+"/s"
+	document.getElementById("shapesPerSecond").innerHTML=numberWithCommas(abbreviate(shapesPSRounded, 2, false, false))+"/s"
 	document.getElementById("circleCost").innerHTML="Buy Circle - "+numberWithCommas(abbreviate(circleCost, 2, false, false))+" Shapes"
 	document.getElementById("triangleCost").innerHTML="Buy Triangle - "+numberWithCommas(abbreviate(triangleCost, 2, false, false))+" Shapes"
 	document.getElementById("rectangleCost").innerHTML="Buy Rectangle - "+numberWithCommas(abbreviate(rectangleCost, 2, false, false))+" Shapes"
 	document.getElementById("pentagonCost").innerHTML="Buy Pentagon - "+numberWithCommas(abbreviate(pentagonCost, 2, false, false))+" Shapes"
 	document.getElementById("hexagonCost").innerHTML="Buy Hexagon - "+numberWithCommas(abbreviate(hexagonCost, 2, false, false))+" Shapes"
 	document.getElementById("heptagonCost").innerHTML="Buy Heptagon - "+numberWithCommas(abbreviate(heptagonCost, 2, false, false))+" Shapes"
-	document.getElementById("shapes").innerHTML=numberWithCommas(abbreviate((Math.round(shapes)), 2, false, false))+" Shapes"
+	document.getElementById("shapes").innerHTML=numberWithCommas(abbreviate(Math.round(shapes), 2, false, false))+" Shapes"
 }
 
 function updateTitle(){
