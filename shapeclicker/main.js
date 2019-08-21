@@ -27,6 +27,30 @@ heptagonCost=120000;
 heptagonCount=0;
 heptagonSPS=0;
 
+octagonCost=1350000;
+octagonCount=0;
+octagonSPS=0;
+
+nonagonCost=18500000;
+nonagonCount=0;
+nonagonSPS=0;
+
+decagonCost=300000000;
+decagonCount=0;
+decagonSPS=0;
+
+hendecagonCost=4500000000;
+hendecagonCount=0;
+hendecagonSPS=0;
+
+dodecagonCost=70000000000;
+dodecagonCount=0;
+dodecagonSPS=0;
+
+tridecagonCost=1000000000000;
+tridecagonCount=0;
+tridecagonSPS=0;
+
 function abbreviate(number, maxPlaces, forcePlaces, forceLetter) {
 	number = Number(number)
 	forceLetter = forceLetter || false
@@ -117,7 +141,7 @@ function clicked(){
 }
 
 function timer(){
-	shapesPerSecond=circleSPS+triangleSPS+rectangleSPS+pentagonSPS+hexagonSPS+heptagonSPS
+	shapesPerSecond=circleSPS+triangleSPS+rectangleSPS+pentagonSPS+hexagonSPS+heptagonSPS+octagonSPS+nonagonSPS+decagonSPS+hendecagonSPS+dodecagonSPS+tridecagonSPS
 	shapesPSRounded=Math.round(shapesPerSecond*10)/10
 	shapes=shapes+(shapesPerSecond/25)
 	update()
@@ -132,6 +156,12 @@ function update(){
 	document.getElementById("pentagonCost").innerHTML="Buy Pentagon - "+numberWithCommas(abbreviate(pentagonCost, 2, false, false))+" Shapes"
 	document.getElementById("hexagonCost").innerHTML="Buy Hexagon - "+numberWithCommas(abbreviate(hexagonCost, 2, false, false))+" Shapes"
 	document.getElementById("heptagonCost").innerHTML="Buy Heptagon - "+numberWithCommas(abbreviate(heptagonCost, 2, false, false))+" Shapes"
+	document.getElementById("octagonCost").innerHTML="Buy Octagon - "+numberWithCommas(abbreviate(octagonCost, 2, false, false))+" Shapes"
+	document.getElementById("nonagonCost").innerHTML="Buy Nonagon - "+numberWithCommas(abbreviate(nonagonCost, 2, false, false))+" Shapes"
+	document.getElementById("decagonCost").innerHTML="Buy Decagon - "+numberWithCommas(abbreviate(decagonCost, 2, false, false))+" Shapes"
+	document.getElementById("hendecagonCost").innerHTML="Buy Hendecagon - "+numberWithCommas(abbreviate(hendecagonCost, 2, false, false))+" Shapes"
+	document.getElementById("dodecagonCost").innerHTML="Buy Dodecagon - "+numberWithCommas(abbreviate(dodecagonCost, 2, false, false))+" Shapes"
+	document.getElementById("tridecagonCost").innerHTML="Buy Tridecagon - "+numberWithCommas(abbreviate(tridecagonCost, 2, false, false))+" Shapes"
 	document.getElementById("shapes").innerHTML=numberWithCommas(abbreviate(Math.trunc(shapes), 2, false, false))+" Shapes"
 }
 
@@ -146,7 +176,7 @@ function circle(){
 		shapes=shapes-circleCost
 		circleSPS=circleSPS+0.1
 		circleCount=circleCount+1
-		circleCost=Math.round(circleCost+(1.15*((circleCount*1.5)*1.2)))
+		circleCost=Math.round(circleCost+(1.15*((circleCount*1.5)*2.2)))
 		update()
 	}
 	else{
@@ -158,7 +188,7 @@ function triangle(){
 		shapes=shapes-triangleCost
 		triangleSPS=triangleSPS+0.5
 		triangleCount=triangleCount+1
-		triangleCost=Math.round(triangleCost+(1.15*((triangleCount*1.5)*3.2)))
+		triangleCost=Math.round(triangleCost+(1.15*((triangleCount*1.5)*6.2)))
 		update()
 	}
 	else{
@@ -170,7 +200,7 @@ function rectangle(){
 		shapes=shapes-rectangleCost
 		rectangleSPS=rectangleSPS+3
 		rectangleCount=rectangleCount+1
-		rectangleCost=Math.round(rectangleCost+(1.15*((rectangleCount*1.5)*8.5)))
+		rectangleCost=Math.round(rectangleCost+(1.15*((rectangleCount*1.5)*32.5)))
 		update()
 	}
 	else{
@@ -182,7 +212,7 @@ function pentagon(){
 		shapes=shapes-pentagonCost
 		pentagonSPS=pentagonSPS+10
 		pentagonCount=pentagonCount+1
-		pentagonCost=Math.round(pentagonCost+(1.15*((pentagonCount*1.5)*50)))
+		pentagonCost=Math.round(pentagonCost+(1.15*((pentagonCount*1.5)*700)))
 		update()
 	}
 	else{
@@ -194,7 +224,7 @@ function hexagon(){
 		shapes=shapes-hexagonCost
 		hexagonSPS=hexagonSPS+32
 		hexagonCount=hexagonCount+1
-		hexagonCost=Math.round(hexagonCost+(1.15*((hexagonCount*1.5)*600)))
+		hexagonCost=Math.round(hexagonCost+(1.15*((hexagonCount*1.5)*2400)))
 		update()
 	}
 	else{
@@ -204,9 +234,81 @@ function hexagon(){
 function heptagon(){
 	if (shapes>=heptagonCost){
 		shapes=shapes-heptagonCost
-		heptagonSPS=heptagonSPS+216
+		heptagonSPS=heptagonSPS+240
 		heptagonCount=heptagonCount+1
-		heptagonCost=Math.round(heptagonCost+(1.15*((heptagonCount*1.5)*1400)))
+		heptagonCost=Math.round(heptagonCost+(1.15*((heptagonCount*1.5)*42600)))
+		update()
+	}
+	else{
+	}
+}
+
+function octagon(){
+	if (shapes>=octagonCost){
+		shapes=shapes-octagonCost
+		octagonSPS=octagonSPS+1200
+		octagonCount=octagonCount+1
+		octagonCost=Math.round(octagonCost+(1.15*((octagonCount*1.5)*280000)))
+		update()
+	}
+	else{
+	}
+}
+
+function nonagon(){
+	if (shapes>=nonagonCost){
+		shapes=shapes-nonagonCost
+		nonagonSPS=nonagonSPS+7600
+		nonagonCount=nonagonCount+1
+		nonagonCost=Math.round(nonagonCost+(1.15*((nonagonCount*1.5)*3500000)))
+		update()
+	}
+	else{
+	}
+}
+
+function decagon(){
+	if (shapes>=decagonCost){
+		shapes=shapes-decagonCost
+		decagonSPS=decagonSPS+42000
+		decagonCount=decagonCount+1
+		decagonCost=Math.round(decagonCost+(1.15*((decagonCount*1.5)*26500000)))
+		update()
+	}
+	else{
+	}
+}
+
+function hendecagon(){
+	if (shapes>=hendecagonCost){
+		shapes=shapes-hendecagonCost
+		hendecagonSPS=hendecagonSPS+240000
+		hendecagonCount=hendecagonCount+1
+		hendecagonCost=Math.round(hendecagonCost+(1.15*((hendecagonCount*1.5)*340000000)))
+		update()
+	}
+	else{
+	}
+}
+
+function dodecagon(){
+	if (shapes>=dodecagonCost){
+		shapes=shapes-dodecagonCost
+		dodecagonSPS=dodecagonSPS+1500000
+		dodecagonCount=dodecagonCount+1
+		dodecagonCost=Math.round(dodecagonCost+(1.15*((dodecagonCount*1.5)*4500000000)))
+		update()
+	}
+	else{
+	}
+}
+
+function tridecagon(){
+	if (shapes>=tridecagonCost){
+		shapes=shapes-tridecagonCost
+		tridecagonSPS=tridecagonSPS+10000000
+		tridecagonCount=tridecagonCount+1
+		tridecagonCost=Math.round(tridecagonCost+(1.15*((tridecagonCount*1.5)*90000000000)))
 		update()
 	}
 	else{

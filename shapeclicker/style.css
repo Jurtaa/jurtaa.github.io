@@ -3,56 +3,71 @@ body {
 	text-align: center;
 }
 
+h1 {
+	font-size: 30px;
+	line-height: 18px;
+}
+
 button {
 	background-color: #d9d9d9;
 	border: none;
-	padding: 6px 10px;
+	padding: 4px 6px;
 	font-family: Tahoma, Geneva, sans-serif;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
-	font-size: 16px;
+	font-size: 15px;
 	margin: 4px 2px;
 	cursor: pointer;
 	border-radius: 6px;
+	-webkit-transition-duration: 0.2s;
 	transition-duration: 0.2s;
 	outline: none;
+	box-shadow: 2px 2px 4px #aaa;
 }
 
 button:hover {
 	background-color: #e8e8e8;
 	border-radius: 4px;
+	box-shadow: 4px 4px 8px #c9c9c9;
 }
 
 button:active {
 	background-color: #cfcfcf;
 	border-radius: 8px;
+	box-shadow: 1px 1px 2px #999;
 }
 
 #square {
-	width:100px;
-	height:100px;
-	background-color:#d9d9d9;
-	margin:auto;
+	width: 100px;
+	height: 100px;
+	background-color: #d9d9d9;
+	margin: auto;
+	-webkit-transition-duration: 0.2s;
 	transition-duration: 0.2s;
 	cursor: pointer;
 	outline: none;
+	box-shadow: 4px 4px 4px #aaa;
 }
 
 #square:hover {
-	background-color:#e8e8e8;
+	background-color: #e8e8e8;
+	box-shadow: 8px 8px 8px #c9c9c9;
+
 }
 
 #square:active {
-	background-color:#cfcfcf;
+	background-color: #cfcfcf;
+	box-shadow: 2px 2px 2px #999;
 }
 
 #versionNumber {
-	position:absolute;
-	left:0px;
-	bottom:0px;
-	opacity:0.5;
-	margin:8px;
-	font-size:22px;
-	z-index:100000000;
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	opacity: 0.5;
+	margin: 8px;
+	font-size: 22px;
+	z-index: 100000000;
+	text-shadow: 1px 1px 4px #000;
 }
