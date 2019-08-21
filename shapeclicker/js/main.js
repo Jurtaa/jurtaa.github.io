@@ -99,7 +99,7 @@ function timer(){
 setInterval(timer, 40)
 
 function update(){
-	document.getElementById("shapesPerSecond").innerHTML=numberWithCommas(abbreviate((Math.round(shapesPerSecond*10)), 2, false, false)/10)+"/s"
+	document.getElementById("shapesPerSecond").innerHTML=numberWithCommas(abbreviate((Math.round((shapesPerSecond*10)/10)), 2, false, false))+"/s"
 	document.getElementById("circleCost").innerHTML="Buy Circle - "+numberWithCommas(abbreviate(circleCost, 2, false, false))+" Shapes"
 	document.getElementById("triangleCost").innerHTML="Buy Triangle - "+numberWithCommas(abbreviate(triangleCost, 2, false, false))+" Shapes"
 	document.getElementById("rectangleCost").innerHTML="Buy Rectangle - "+numberWithCommas(abbreviate(rectangleCost, 2, false, false))+" Shapes"
