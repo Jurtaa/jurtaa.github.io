@@ -3,6 +3,9 @@ shapesPerClick=1;
 shapesPerSecond=0;
 shapesPSRounded=0;
 
+spcMultiCost=2000;
+spcMultiplier=0;
+
 circleCost=10;
 circleCount=0;
 circleSPS=0;
@@ -150,6 +153,7 @@ setInterval(timer, 40)
 
 function update(){
 	document.getElementById("shapesPerSecond").innerHTML=numberWithCommas(abbreviate(shapesPSRounded, 2, false, false))+"/s"
+	document.getElementById("spcMultiCost").innerHTML="Upgrade your cursor - "+numberWithCommas(abbreviate(spcMultiCost, 2, false, false))+" Shapes"
 	document.getElementById("circleCost").innerHTML="Buy Circle - "+numberWithCommas(abbreviate(circleCost, 2, false, false))+" Shapes"
 	document.getElementById("triangleCost").innerHTML="Buy Triangle - "+numberWithCommas(abbreviate(triangleCost, 2, false, false))+" Shapes"
 	document.getElementById("rectangleCost").innerHTML="Buy Rectangle - "+numberWithCommas(abbreviate(rectangleCost, 2, false, false))+" Shapes"
@@ -170,6 +174,16 @@ function updateTitle(){
 }
 setInterval(updateTitle, 1000)
 
+function spcMulti(){
+	if (shapes>=spcMultiCost){
+		shapes=shapes-spcMultiCost
+		shapesPerClick=shapesPerClick*2
+		spcMultiCost=spcMultiCost*3
+		update()
+	}
+	else{
+	}
+}
 
 function circle(){
 	if (shapes>=circleCost){

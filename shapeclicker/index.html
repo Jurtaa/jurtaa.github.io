@@ -19,27 +19,25 @@
     <b><div id="shapes" style="line-height: 32px; font-size: 24px">0 Shapes</div></b>
     <div id="shapesPerSecond" style="line-height: 20px; font-size: 20px">0/s</div>
     <br>
-    <div id="square" onclick="clicked()">
-	</div>
+    <div id="square" onclick="clicked()"></div>
     <h1>Store</h1>
-    <button onclick="circle()" id="circleCost">Buy Circle - 10 Shapes</button>
-    <button onclick="triangle()" id="triangleCost">Buy Triangle - 85 Shapes</button>
-    <button onclick="rectangle()" id="rectangleCost">Buy Rectangle - 620 Shapes</button>
-    <br>
-    <button onclick="pentagon()" id="pentagonCost">Buy Pentagon - 3200 Shapes</button>
-    <button onclick="hexagon()" id="hexagonCost">Buy Hexagon - 10500 Shapes</button>
-    <button onclick="heptagon()" id="heptagonCost">Buy Heptagon - 120000 Shapes</button>
+    <button data-title="Produces 0.1/s each" onclick="circle()" id="circleCost">Buy Circle - 10 Shapes</button>
+    <button data-title="Produces 0.5/s each" onclick="triangle()" id="triangleCost">Buy Triangle - 85 Shapes</button>
+    <button data-title="Produces 3/s each" onclick="rectangle()" id="rectangleCost">Buy Rectangle - 620 Shapes</button>
+    <button data-title="Produces 10/s each" onclick="pentagon()" id="pentagonCost">Buy Pentagon - 3,200 Shapes</button>
 	<br>
-	<button onclick="octagon()" id="octagonCost">Buy Octagon - 1.35M Shapes</button>
-	<button onclick="nonagon()" id="nonagonCost">Buy Nonagon - 18.5M Shapes</button>
-	<button onclick="decagon()" id="decagonCost">Buy Decagon - 300M Shapes</button>
-	<br>
-	<button onclick="hendecagon()" id="hendecagonCost">Buy Hendecagon - 4.5B Shapes</button>
-	<button onclick="dodecagon()" id="dodecagonCost">Buy Dodecagon - 70B Shapes</button>
-	<button onclick="tridecagon()" id="tridecagonCost">Buy Tridecagon - 1T Shapes</button>
+    <button data-title="Produces 32/s each" onclick="hexagon()" id="hexagonCost">Buy Hexagon - 10,500 Shapes</button>
+    <button data-title="Produces 240/s each" onclick="heptagon()" id="heptagonCost">Buy Heptagon - 120,000 Shapes</button>
+	<button data-title="Produces 1,200/s each" onclick="octagon()" id="octagonCost">Buy Octagon - 1.35M Shapes</button>
+	<button data-title="Produces 7,600/s each" onclick="nonagon()" id="nonagonCost">Buy Nonagon - 18.5M Shapes</button>
+	<br>	
+	<button data-title="Produces 42,000/s each" onclick="decagon()" id="decagonCost">Buy Decagon - 300M Shapes</button>
+	<button data-title="Produces 240,000/s each" onclick="hendecagon()" id="hendecagonCost">Buy Hendecagon - 4.5B Shapes</button>
+	<button data-title="Produces 1.5M/s each" onclick="dodecagon()" id="dodecagonCost">Buy Dodecagon - 70B Shapes</button>
+	<button data-title="Produces 10M/s each" onclick="tridecagon()" id="tridecagonCost">Buy Tridecagon - 1T Shapes</button>
     <h1>Upgrades</h1>
-    <p>Coming soon, probably.</p>
-	<a href="changelog" target="_blank" id="versionNumber" style="color: #000; text-decoration: none">v. 0.30</a>
+    <button data-title="Doubles your shapes per click" onclick="spcMulti()" id="spcMultiCost">Upgrade your cursor - 2,000 Shapes</button>
+	<a href="changelog" target="_blank" id="versionNumber" style="color: #000; text-decoration: none">v. 0.35</a>
 </body>
 
 </html>
