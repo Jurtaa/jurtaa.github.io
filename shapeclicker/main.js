@@ -1,58 +1,88 @@
-shapes=0;
-shapesPerClick=1;
-shapesPerSecond=0;
+var Game={};
+
+Game.shapes=0;
+Game.shapesPerClick=1;
+Game.shapesPerSecond=0;
 shapesPSRounded=0;
 
-spcMultiCost=2000;
-spcMultiplier=0;
+Game.geometryName="Player";
 
-circleCost=10;
-circleCount=0;
-circleSPS=0;
+Game.spcMultiCost=2000;
+Game.circleCost=10;
+Game.circleCount=0;
+Game.circleSPS=0;
+Game.triangleCost=85;
+Game.triangleCount=0;
+Game.triangleSPS=0;
+Game.rectangleCost=620;
+Game.rectangleCount=0;
+Game.rectangleSPS=0;
+Game.pentagonCost=3200;
+Game.pentagonCount=0;
+Game.pentagonSPS=0;
+Game.hexagonCost=10500;
+Game.hexagonCount=0;
+Game.hexagonSPS=0;
+Game.heptagonCost=120000;
+Game.heptagonCount=0;
+Game.heptagonSPS=0;
+Game.octagonCost=1350000;
+Game.octagonCount=0;
+Game.octagonSPS=0;
+Game.nonagonCost=18500000;
+Game.nonagonCount=0;
+Game.nonagonSPS=0;
+Game.decagonCost=300000000;
+Game.decagonCount=0;
+Game.decagonSPS=0;
+Game.hendecagonCost=4500000000;
+Game.hendecagonCount=0;
+Game.hendecagonSPS=0;
+Game.dodecagonCost=70000000000;
+Game.dodecagonCount=0;
+Game.dodecagonSPS=0;
+Game.tridecagonCost=1000000000000;
+Game.tridecagonCount=0;
+Game.tridecagonSPS=0;
 
-triangleCost=85;
-triangleCount=0;
-triangleSPS=0;
+/*----------SAVING/LOADING SYSTEM----------*/
 
-rectangleCost=620;
-rectangleCount=0;
-rectangleSPS=0;
+window.save=function(){
+	localStorage.setItem("Game", JSON.stringify(Game));
+};
 
-pentagonCost=3200;
-pentagonCount=0;
-pentagonSPS=0;
+window.wipeSave=function(){
+	var commitWipeSave = confirm("Do you REALLY want to wipe your save? You will lose all of your progress.")
+	if (commitWipeSave == true){
+		var commitSureWipeSave = confirm("Hey there buddy, are you POSITIVELY sure that you want to do this? All of your hard work will be turned into dust if you proceed.")
+		if (commitSureWipeSave == true){ 
+				localStorage.removeItem("Game")
+				location.reload();
+		}
+		else{
+		}
+	}
+	else{
+	}
+}
 
-hexagonCost=10500;
-hexagonCount=0;
-hexagonSPS=0;
+function autoSave(){
+	window.save();
+}
+setInterval(autoSave, 60000)
 
-heptagonCost=120000;
-heptagonCount=0;
-heptagonSPS=0;
+window.load=function(){
+	if (localStorage.getItem("Game")){
+		var loading = JSON.parse(localStorage.getItem("Game"));
+		Game = loading;
+	}
+	else{
+		window.save()
+	}
+}
+window.load()
 
-octagonCost=1350000;
-octagonCount=0;
-octagonSPS=0;
-
-nonagonCost=18500000;
-nonagonCount=0;
-nonagonSPS=0;
-
-decagonCost=300000000;
-decagonCount=0;
-decagonSPS=0;
-
-hendecagonCost=4500000000;
-hendecagonCount=0;
-hendecagonSPS=0;
-
-dodecagonCost=70000000000;
-dodecagonCount=0;
-dodecagonSPS=0;
-
-tridecagonCost=1000000000000;
-tridecagonCount=0;
-tridecagonSPS=0;
+/*-----------MAKES NUMBERS PRETTY----------*/
 
 function abbreviate(number, maxPlaces, forcePlaces, forceLetter) {
 	number = Number(number)
@@ -138,59 +168,65 @@ function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
+/*---------------OTHER STUFF---------------*/
+
 function clicked(){
-	shapes=shapes+shapesPerClick
+	Game.shapes=Game.shapes+Game.shapesPerClick
 	update()
 }
 
 function timer(){
-	shapesPerSecond=circleSPS+triangleSPS+rectangleSPS+pentagonSPS+hexagonSPS+heptagonSPS+octagonSPS+nonagonSPS+decagonSPS+hendecagonSPS+dodecagonSPS+tridecagonSPS
-	shapesPSRounded=Math.round(shapesPerSecond*10)/10
-	shapes=shapes+(shapesPerSecond/25)
+	Game.shapesPerSecond=Game.circleSPS+Game.triangleSPS+Game.rectangleSPS+Game.pentagonSPS+Game.hexagonSPS+Game.heptagonSPS+Game.octagonSPS+Game.nonagonSPS+Game.decagonSPS+Game.hendecagonSPS+Game.dodecagonSPS+Game.tridecagonSPS
+	shapesPSRounded=Math.round(Game.shapesPerSecond*10)/10
+	Game.shapes=Game.shapes+(Game.shapesPerSecond/25)
 	update()
 }
 setInterval(timer, 40)
 
 function update(){
+	document.getElementById("geometryName").innerHTML=Game.geometryName+"'s geometry"
 	document.getElementById("shapesPerSecond").innerHTML=numberWithCommas(abbreviate(shapesPSRounded, 2, false, false))+"/s"
-	document.getElementById("spcMultiCost").innerHTML="Upgrade your cursor - "+numberWithCommas(abbreviate(spcMultiCost, 2, false, false))+" Shapes"
-	document.getElementById("circleCost").innerHTML="Buy Circle - "+numberWithCommas(abbreviate(circleCost, 2, false, false))+" Shapes"
-	document.getElementById("triangleCost").innerHTML="Buy Triangle - "+numberWithCommas(abbreviate(triangleCost, 2, false, false))+" Shapes"
-	document.getElementById("rectangleCost").innerHTML="Buy Rectangle - "+numberWithCommas(abbreviate(rectangleCost, 2, false, false))+" Shapes"
-	document.getElementById("pentagonCost").innerHTML="Buy Pentagon - "+numberWithCommas(abbreviate(pentagonCost, 2, false, false))+" Shapes"
-	document.getElementById("hexagonCost").innerHTML="Buy Hexagon - "+numberWithCommas(abbreviate(hexagonCost, 2, false, false))+" Shapes"
-	document.getElementById("heptagonCost").innerHTML="Buy Heptagon - "+numberWithCommas(abbreviate(heptagonCost, 2, false, false))+" Shapes"
-	document.getElementById("octagonCost").innerHTML="Buy Octagon - "+numberWithCommas(abbreviate(octagonCost, 2, false, false))+" Shapes"
-	document.getElementById("nonagonCost").innerHTML="Buy Nonagon - "+numberWithCommas(abbreviate(nonagonCost, 2, false, false))+" Shapes"
-	document.getElementById("decagonCost").innerHTML="Buy Decagon - "+numberWithCommas(abbreviate(decagonCost, 2, false, false))+" Shapes"
-	document.getElementById("hendecagonCost").innerHTML="Buy Hendecagon - "+numberWithCommas(abbreviate(hendecagonCost, 2, false, false))+" Shapes"
-	document.getElementById("dodecagonCost").innerHTML="Buy Dodecagon - "+numberWithCommas(abbreviate(dodecagonCost, 2, false, false))+" Shapes"
-	document.getElementById("tridecagonCost").innerHTML="Buy Tridecagon - "+numberWithCommas(abbreviate(tridecagonCost, 2, false, false))+" Shapes"
-	document.getElementById("shapes").innerHTML=numberWithCommas(abbreviate(Math.trunc(shapes), 2, false, false))+" Shapes"
+	document.getElementById("spcMultiCost").innerHTML="Upgrade your cursor - "+numberWithCommas(abbreviate(Game.spcMultiCost, 2, false, false))+" Shapes"
+	document.getElementById("circleCost").innerHTML="Buy Circle - "+numberWithCommas(abbreviate(Game.circleCost, 2, false, false))+" Shapes"
+	document.getElementById("triangleCost").innerHTML="Buy Triangle - "+numberWithCommas(abbreviate(Game.triangleCost, 2, false, false))+" Shapes"
+	document.getElementById("rectangleCost").innerHTML="Buy Rectangle - "+numberWithCommas(abbreviate(Game.rectangleCost, 2, false, false))+" Shapes"
+	document.getElementById("pentagonCost").innerHTML="Buy Pentagon - "+numberWithCommas(abbreviate(Game.pentagonCost, 2, false, false))+" Shapes"
+	document.getElementById("hexagonCost").innerHTML="Buy Hexagon - "+numberWithCommas(abbreviate(Game.hexagonCost, 2, false, false))+" Shapes"
+	document.getElementById("heptagonCost").innerHTML="Buy Heptagon - "+numberWithCommas(abbreviate(Game.heptagonCost, 2, false, false))+" Shapes"
+	document.getElementById("octagonCost").innerHTML="Buy Octagon - "+numberWithCommas(abbreviate(Game.octagonCost, 2, false, false))+" Shapes"
+	document.getElementById("nonagonCost").innerHTML="Buy Nonagon - "+numberWithCommas(abbreviate(Game.nonagonCost, 2, false, false))+" Shapes"
+	document.getElementById("decagonCost").innerHTML="Buy Decagon - "+numberWithCommas(abbreviate(Game.decagonCost, 2, false, false))+" Shapes"
+	document.getElementById("hendecagonCost").innerHTML="Buy Hendecagon - "+numberWithCommas(abbreviate(Game.hendecagonCost, 2, false, false))+" Shapes"
+	document.getElementById("dodecagonCost").innerHTML="Buy Dodecagon - "+numberWithCommas(abbreviate(Game.dodecagonCost, 2, false, false))+" Shapes"
+	document.getElementById("tridecagonCost").innerHTML="Buy Tridecagon - "+numberWithCommas(abbreviate(Game.tridecagonCost, 2, false, false))+" Shapes"
+	document.getElementById("shapes").innerHTML=numberWithCommas(abbreviate(Math.trunc(Game.shapes), 2, false, false))+" Shapes"
 }
 
 function updateTitle(){
-	document.title=numberWithCommas(abbreviate((Math.trunc(shapes)), 2, false, false))+" Shapes"
+	document.title=numberWithCommas(abbreviate((Math.trunc(Game.shapes)), 2, false, false))+" Shapes - Shape Clicker"
 }
 setInterval(updateTitle, 1000)
 
-function spcMulti(){
-	if (shapes>=spcMultiCost){
-		shapes=shapes-spcMultiCost
-		shapesPerClick=shapesPerClick*2
-		spcMultiCost=spcMultiCost*3
-		update()
+/*--------------GEOMETRY NAME--------------*/
+
+function nameGeometry(){
+	Game.newGeometryName=prompt("Name your geometry.", Game.geometryName);
+	if (Game.newGeometryName == null || Game.newGeometryName == ""){
+		Game.geometryName=Game.geometryName;
 	}
-	else{
+	else {
+		Game.geometryName=Game.newGeometryName;
 	}
 }
 
+/*----------------BUILDINGS----------------*/
+
 function circle(){
-	if (shapes>=circleCost){
-		shapes=shapes-circleCost
-		circleSPS=circleSPS+0.1
-		circleCount=circleCount+1
-		circleCost=Math.round(circleCost+(1.15*((circleCount*1.5)*2.2)))
+	if (Game.shapes>=Game.circleCost){
+		Game.shapes=Game.shapes-Game.circleCost
+		Game.circleSPS=Game.circleSPS+0.1
+		Game.circleCount=Game.circleCount+1
+		Game.circleCost=Math.round(Game.circleCost+(1.15*((Game.circleCount*1.5)*2.2)))
 		update()
 	}
 	else{
@@ -198,11 +234,11 @@ function circle(){
 }
 
 function triangle(){
-	if (shapes>=triangleCost){
-		shapes=shapes-triangleCost
-		triangleSPS=triangleSPS+0.5
-		triangleCount=triangleCount+1
-		triangleCost=Math.round(triangleCost+(1.15*((triangleCount*1.5)*6.2)))
+	if (Game.shapes>=Game.triangleCost){
+		Game.shapes=Game.shapes-Game.triangleCost
+		Game.triangleSPS=Game.triangleSPS+0.5
+		Game.triangleCount=Game.triangleCount+1
+		Game.triangleCost=Math.round(Game.triangleCost+(1.15*((Game.triangleCount*1.5)*6.2)))
 		update()
 	}
 	else{
@@ -210,11 +246,11 @@ function triangle(){
 }
 
 function rectangle(){
-	if (shapes>=rectangleCost){
-		shapes=shapes-rectangleCost
-		rectangleSPS=rectangleSPS+3
-		rectangleCount=rectangleCount+1
-		rectangleCost=Math.round(rectangleCost+(1.15*((rectangleCount*1.5)*32.5)))
+	if (Game.shapes>=Game.rectangleCost){
+		Game.shapes=Game.shapes-Game.rectangleCost
+		Game.rectangleSPS=Game.rectangleSPS+3
+		Game.rectangleCount=Game.rectangleCount+1
+		Game.rectangleCost=Math.round(Game.rectangleCost+(1.15*((Game.rectangleCount*1.5)*32.5)))
 		update()
 	}
 	else{
@@ -222,11 +258,11 @@ function rectangle(){
 }
 
 function pentagon(){
-	if (shapes>=pentagonCost){
-		shapes=shapes-pentagonCost
-		pentagonSPS=pentagonSPS+10
-		pentagonCount=pentagonCount+1
-		pentagonCost=Math.round(pentagonCost+(1.15*((pentagonCount*1.5)*700)))
+	if (Game.shapes>=Game.pentagonCost){
+		Game.shapes=Game.shapes-Game.pentagonCost
+		Game.pentagonSPS=Game.pentagonSPS+10
+		Game.pentagonCount=Game.pentagonCount+1
+		Game.pentagonCost=Math.round(Game.pentagonCost+(1.15*((Game.pentagonCount*1.5)*700)))
 		update()
 	}
 	else{
@@ -234,11 +270,11 @@ function pentagon(){
 }
 
 function hexagon(){
-	if (shapes>=hexagonCost){
-		shapes=shapes-hexagonCost
-		hexagonSPS=hexagonSPS+32
-		hexagonCount=hexagonCount+1
-		hexagonCost=Math.round(hexagonCost+(1.15*((hexagonCount*1.5)*2400)))
+	if (Game.shapes>=Game.hexagonCost){
+		Game.shapes=Game.shapes-Game.hexagonCost
+		Game.hexagonSPS=Game.hexagonSPS+32
+		Game.hexagonCount=Game.hexagonCount+1
+		Game.hexagonCost=Math.round(Game.hexagonCost+(1.15*((Game.hexagonCount*1.5)*2400)))
 		update()
 	}
 	else{
@@ -246,11 +282,11 @@ function hexagon(){
 }
 
 function heptagon(){
-	if (shapes>=heptagonCost){
-		shapes=shapes-heptagonCost
-		heptagonSPS=heptagonSPS+240
-		heptagonCount=heptagonCount+1
-		heptagonCost=Math.round(heptagonCost+(1.15*((heptagonCount*1.5)*42600)))
+	if (Game.shapes>=Game.heptagonCost){
+		Game.shapes=Game.shapes-Game.heptagonCost
+		Game.heptagonSPS=Game.heptagonSPS+240
+		Game.heptagonCount=Game.heptagonCount+1
+		Game.heptagonCost=Math.round(Game.heptagonCost+(1.15*((Game.heptagonCount*1.5)*42600)))
 		update()
 	}
 	else{
@@ -258,11 +294,11 @@ function heptagon(){
 }
 
 function octagon(){
-	if (shapes>=octagonCost){
-		shapes=shapes-octagonCost
-		octagonSPS=octagonSPS+1200
-		octagonCount=octagonCount+1
-		octagonCost=Math.round(octagonCost+(1.15*((octagonCount*1.5)*280000)))
+	if (Game.shapes>=Game.octagonCost){
+		Game.shapes=Game.shapes-Game.octagonCost
+		Game.octagonSPS=Game.octagonSPS+1200
+		Game.octagonCount=Game.octagonCount+1
+		Game.octagonCost=Math.round(Game.octagonCost+(1.15*((Game.octagonCount*1.5)*280000)))
 		update()
 	}
 	else{
@@ -270,11 +306,11 @@ function octagon(){
 }
 
 function nonagon(){
-	if (shapes>=nonagonCost){
-		shapes=shapes-nonagonCost
-		nonagonSPS=nonagonSPS+7600
-		nonagonCount=nonagonCount+1
-		nonagonCost=Math.round(nonagonCost+(1.15*((nonagonCount*1.5)*3500000)))
+	if (Game.shapes>=Game.nonagonCost){
+		Game.shapes=Game.shapes-Game.nonagonCost
+		Game.nonagonSPS=Game.nonagonSPS+7600
+		Game.nonagonCount=Game.nonagonCount+1
+		Game.nonagonCost=Math.round(Game.nonagonCost+(1.15*((Game.nonagonCount*1.5)*3500000)))
 		update()
 	}
 	else{
@@ -282,11 +318,11 @@ function nonagon(){
 }
 
 function decagon(){
-	if (shapes>=decagonCost){
-		shapes=shapes-decagonCost
-		decagonSPS=decagonSPS+42000
-		decagonCount=decagonCount+1
-		decagonCost=Math.round(decagonCost+(1.15*((decagonCount*1.5)*26500000)))
+	if (Game.shapes>=Game.decagonCost){
+		Game.shapes=Game.shapes-Game.decagonCost
+		Game.decagonSPS=Game.decagonSPS+42000
+		Game.decagonCount=Game.decagonCount+1
+		Game.decagonCost=Math.round(Game.decagonCost+(1.15*((Game.decagonCount*1.5)*26500000)))
 		update()
 	}
 	else{
@@ -294,11 +330,11 @@ function decagon(){
 }
 
 function hendecagon(){
-	if (shapes>=hendecagonCost){
-		shapes=shapes-hendecagonCost
-		hendecagonSPS=hendecagonSPS+240000
-		hendecagonCount=hendecagonCount+1
-		hendecagonCost=Math.round(hendecagonCost+(1.15*((hendecagonCount*1.5)*340000000)))
+	if (Game.shapes>=Game.hendecagonCost){
+		Game.shapes=Game.shapes-Game.hendecagonCost
+		Game.hendecagonSPS=Game.hendecagonSPS+240000
+		Game.hendecagonCount=Game.hendecagonCount+1
+		Game.hendecagonCost=Math.round(Game.hendecagonCost+(1.15*((Game.hendecagonCount*1.5)*340000000)))
 		update()
 	}
 	else{
@@ -306,11 +342,11 @@ function hendecagon(){
 }
 
 function dodecagon(){
-	if (shapes>=dodecagonCost){
-		shapes=shapes-dodecagonCost
-		dodecagonSPS=dodecagonSPS+1500000
-		dodecagonCount=dodecagonCount+1
-		dodecagonCost=Math.round(dodecagonCost+(1.15*((dodecagonCount*1.5)*4500000000)))
+	if (Game.shapes>=Game.dodecagonCost){
+		Game.shapes=Game.shapes-Game.dodecagonCost
+		Game.dodecagonSPS=Game.dodecagonSPS+1500000
+		Game.dodecagonCount=Game.dodecagonCount+1
+		Game.dodecagonCost=Math.round(Game.dodecagonCost+(1.15*((Game.dodecagonCount*1.5)*4500000000)))
 		update()
 	}
 	else{
@@ -318,11 +354,24 @@ function dodecagon(){
 }
 
 function tridecagon(){
-	if (shapes>=tridecagonCost){
-		shapes=shapes-tridecagonCost
-		tridecagonSPS=tridecagonSPS+10000000
-		tridecagonCount=tridecagonCount+1
-		tridecagonCost=Math.round(tridecagonCost+(1.15*((tridecagonCount*1.5)*90000000000)))
+	if (Game.shapes>=Game.tridecagonCost){
+		Game.shapes=Game.shapes-Game.tridecagonCost
+		Game.tridecagonSPS=Game.tridecagonSPS+10000000
+		Game.tridecagonCount=Game.tridecagonCount+1
+		Game.tridecagonCost=Math.round(Game.tridecagonCost+(1.15*((Game.tridecagonCount*1.5)*90000000000)))
+		update()
+	}
+	else{
+	}
+}
+
+/*-----------------UPGRADES----------------*/
+
+function spcMulti(){
+	if (Game.shapes>=Game.spcMultiCost){
+		Game.shapes=Game.shapes-Game.spcMultiCost
+		Game.shapesPerClick=Game.shapesPerClick*2
+		Game.spcMultiCost=Game.spcMultiCost*3
 		update()
 	}
 	else{

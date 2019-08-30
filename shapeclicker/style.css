@@ -1,6 +1,12 @@
 body {
 	font-family: Tahoma, Geneva, sans-serif;
 	text-align: center;
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 h1 {
@@ -8,7 +14,7 @@ h1 {
 	line-height: 18px;
 }
 
-button {
+div {
 	background-color: #d9d9d9;
 	border: none;
 	padding: 4px 6px;
@@ -26,13 +32,51 @@ button {
 	/*box-shadow: 2px 2px 4px #aaa;*/
 }
 
-button:hover {
+#shapes, #shapesPerSecond {
+	background-color: transparent;
+	border: none;
+	padding: 0;
+	margin: 0;
+	font-family: Tahoma, Geneva, sans-serif;
+	text-align: center;
+	text-decoration: none;
+	display: block;
+	font-size: 15px;
+	line-height: 0px;
+	cursor: default;
+	border-radius: 0px;
+	-webkit-transition-duration: 0s;
+	transition-duration: 0s;
+	outline: none;
+	/*box-shadow: 2px 2px 4px #aaa;*/
+}
+
+#geometryName {
+	background-color: transparent;
+	border: none;
+	padding: 0;
+	margin: 0;
+	font-family: Tahoma, Geneva, sans-serif;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 15px;
+	line-height: 0px;
+	cursor: pointer;
+	border-radius: 0px;
+	-webkit-transition-duration: 0s;
+	transition-duration: 0s;
+	outline: none;
+	/*box-shadow: 2px 2px 4px #aaa;*/
+}
+
+div:hover {
 	background-color: #e8e8e8;
 	border-radius: 4px;
 	/*box-shadow: 4px 4px 8px #c9c9c9;*/
 }
 
-button:active {
+div:active {
 	background-color: #cfcfcf;
 	border-radius: 8px;
 	/*box-shadow: 1px 1px 2px #999;*/
@@ -41,32 +85,51 @@ button:active {
 #square {
 	width: 100px;
 	height: 100px;
-	background-color: #d9d9d9;
 	margin: auto;
+	padding: 0;
+	background-color: #d9d9d9;
 	-webkit-transition-duration: 0.2s;
 	transition-duration: 0.2s;
 	cursor: pointer;
+	border-radius: 0px;
 	outline: none;
 	/*box-shadow: 4px 4px 4px #aaa;*/
 }
 
 #square:hover {
+	width: 100px;
+	height: 100px;
 	background-color: #e8e8e8;
 	/*box-shadow: 8px 8px 8px #c9c9c9;*/
 }
 
 #square:active {
+	width: 100px;
+	height: 100px;
 	background-color: #cfcfcf;
 	/*box-shadow: 2px 2px 2px #999;*/
 }
 
 #versionNumber {
-	position: absolute;
-	left: 0px;
-	bottom: 0px;
-	opacity: 0.5;
+	background-color: transparent;
+	border: none;
+	padding: 0;
 	margin: 8px;
+	left: 2px;
+	bottom: 5px;
+	font-family: Tahoma, Geneva, sans-serif;
+	text-align: center;
+	text-decoration: none;
+	display: block;
 	font-size: 22px;
+	line-height: 0px;
+	cursor: default;
+	border-radius: 6px;
+	-webkit-transition-duration: 0s;
+	transition-duration: 0s;
+	outline: none;
+	position: absolute;
+	opacity: 0.5;
 	z-index: 100000000;
 	text-shadow: 1px 1px 4px #000;
 }
@@ -106,4 +169,16 @@ button:active {
   border: 8px solid transparent;	
   border-bottom: 8px solid #b8b8b8;
   z-index: 1000000000;
+}
+
+#footer {
+	background-color: #fff;
+	position: fixed;
+	height: 30px;
+	width: 100%;
+	border: none;
+	left: -3px;
+	border-radius: 0px;
+	top: calc(100% - 46px);
+	cursor: default;
 }
