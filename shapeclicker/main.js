@@ -81,6 +81,7 @@ window.load=function(){
 	}
 }
 window.load()
+update()
 
 /*-----------MAKES NUMBERS PRETTY----------*/
 
