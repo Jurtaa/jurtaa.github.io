@@ -14,7 +14,7 @@ h1 {
 	line-height: 18px;
 }
 
-div {
+.button {
 	background-color: #d9d9d9;
 	border: none;
 	padding: 4px 6px;
@@ -30,6 +30,26 @@ div {
 	transition-duration: 0.2s;
 	outline: none;
 	/*box-shadow: 2px 2px 4px #aaa;*/
+}
+
+.columnLeft {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 40%;
+	bottom: 0px;
+	padding: 10px;
+	box-sizing: border-box
+}
+
+.columnRight {
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 60%;
+	padding: 10px;
+	box-sizing: border-box
 }
 
 #shapes, #shapesPerSecond {
@@ -70,13 +90,13 @@ div {
 	/*box-shadow: 2px 2px 4px #aaa;*/
 }
 
-div:hover {
+.button:hover {
 	background-color: #e8e8e8;
 	border-radius: 4px;
 	/*box-shadow: 4px 4px 8px #c9c9c9;*/
 }
 
-div:active {
+.button:active {
 	background-color: #cfcfcf;
 	border-radius: 8px;
 	/*box-shadow: 1px 1px 2px #999;*/
@@ -116,7 +136,7 @@ div:active {
 	padding: 0;
 	margin: 8px;
 	left: 2px;
-	bottom: 5px;
+	bottom: 10px;
 	font-family: Tahoma, Geneva, sans-serif;
 	text-align: center;
 	text-decoration: none;
@@ -140,45 +160,15 @@ div:active {
 	cursor: default;
 }*/
 
-[data-title] {
-  position: relative;
-}
-
-[data-title]:hover::before {
-  content: attr(data-title);
-  position: absolute;
-  bottom: -30px;
-  left: 12%;
-  display: inline-block;
-  padding: 3px 6px;
-  border-radius: 6px;
-  background: #b8b8b8;
-  color: #000;
-  font-size: 15px;
-  white-space: nowrap;
-  z-index: 1000000000;
-}
-
-[data-title]:hover::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  display: inline-block;
-  color: #fff;
-  border: 8px solid transparent;	
-  border-bottom: 8px solid #b8b8b8;
-  z-index: 1000000000;
-}
-
 #footer {
 	background-color: #fff;
 	position: fixed;
-	height: 30px;
+	height: 36px;
 	width: 100%;
 	border: none;
-	left: -3px;
+	left: 0px;
 	border-radius: 0px;
-	top: calc(100% - 46px);
+	top: calc(100% - 36px);
 	cursor: default;
 }
+
