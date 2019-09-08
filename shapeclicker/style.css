@@ -160,7 +160,7 @@ h1 {
 	cursor: default;
 }*/
 
-#footer {
+.footer {
 	background-color: #fff;
 	position: fixed;
 	height: 36px;
@@ -171,4 +171,3 @@ h1 {
 	top: calc(100% - 36px);
 	cursor: default;
 }
-
