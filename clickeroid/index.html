@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+	<title>Clickeroid</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+	<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+	<link rel="manifest" href="favicon/site.webmanifest">
+	<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#424242">
+	<meta name="msapplication-TileColor" content="#5d5d5d">
+	<meta name="theme-color" content="#ffffff">
+	<link rel="stylesheet" href="style.css?v=100">
+	<script type="text/javascript" src="main.js?v=100"></script>
+</head>
+
+<body>
+	<div class="columnLeft">
+		<h1>Store</h1>
+		<div class="buttonStore" onclick="buyCursor()" style="background-image: url(img/cursoricon.png);">
+			<div class="storeText">
+				<div class="buildingName">Cursor</div>
+				<div class="buildingPrice" id="cursorPrice"><moni></moni>15</div>
+			</div>
+			<div class="amount" id="cursorCount">0</div>
+		</div>
+		<div class="buttonStore" onclick="buyMiner()" style="background-image: url(img/minericon.png);">
+			<div class="storeText">
+				<div class="buildingName">Miner</div>
+				<div class="buildingPrice" id="minerPrice"><moni></moni>125</div>
+			</div>
+			<div class="amount" id="minerCount">0</div>
+		</div>
+		<div class="buttonStore" onclick="buySatellite()" style="background-image: url(img/satelliteicon.png);">
+			<div class="storeText">
+				<div class="buildingName">Satellite</div>
+				<div class="buildingPrice" id="satellitePrice"><moni></moni>1,650</div>
+			</div>
+			<div class="amount" id="satelliteCount">0</div>
+		</div>
+		<div class="buttonStore" onclick="buyTNT()" style="background-image: url(img/tnticon.png);">
+			<div class="storeText">
+				<div class="buildingName">Trinitrotoluene</div>
+				<div class="buildingPrice" id="tntPrice"><moni></moni>17,500</div>
+			</div>
+			<div class="amount" id="tntCount">0</div>
+		</div>
+		<div class="buttonStore" onclick="buyDrill()" style="background-image: url(img/drillicon.png);">
+			<div class="storeText">
+				<div class="buildingName">Drill</div>
+				<div class="buildingPrice" id="drillPrice"><moni></moni>145,000</div>
+			</div>
+			<div class="amount" id="drillCount">0</div>
+		</div>
+		<div class="buttonStore" onclick="buyRtlr()" style="background-image: url(img/rtlricon.png);">
+			<div class="storeText">
+				<div class="buildingName">Rocket Launcher</div>
+				<div class="buildingPrice" id="rtlrPrice"><moni></moni>1.26 million</div>
+			</div>
+			<div class="amount" id="rtlrCount">0</div>
+		</div>
+	</div>
+	<div class="columnMiddle">
+		<div id="goldCount">
+			<b><div id="gold" style="line-height: 32px; font-size: 28px;">0 gold</div></b>
+			<div id="goldPS" style="line-height: 32px; font-size: 20px;">0/s</div>
+		</div>
+		<div id="asteroidAnchor">
+			<img id="asteroid" src="img/asteroid.png" draggable="false" onclick="clicked()"></img>
+		</div>
+	</div>
+	<div class="columnRight">
+		<h1>Statistics</h1>
+		<div style="text-align: left;">
+			<p id="goldHand"><b>Gold mined (clicking):</b> <moni></moni>0</p>
+			<p id="goldNoHand"><b>Gold mined (buildings):</b> <moni></moni>0</p>
+			<p id="goldTotal"><b>Gold mined (total):</b> <moni></moni>0</p>
+			<p id="buildingsOwned"><b>Buildings owned:</b> 0</p>
+		</div>
+		<h1>General</h1>
+		<div style="text-align: left;">
+			<p id="gameVersion"><b>Game version:</b> v. 1.00</p>
+			<div class="button" onclick="window.save()">Save</div>
+			<div class="button" onclick="window.wipeSave()">Wipe Save</div>
+			<div class="button"><a href="changelog" target="_blank" style="color: #fff; text-decoration: none">Changelog</a></div>
+		</div>
+	</div>
+</body>
+
+</html>

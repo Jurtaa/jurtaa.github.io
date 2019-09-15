@@ -1,0 +1,247 @@
+@font-face {
+	font-family: 'Ubuntu';
+	src: url('ubuntu/Ubuntu-B.ttf');
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: 'Ubuntu';
+	src: url('ubuntu/Ubuntu-BI.ttf');
+	font-weight: bold;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Ubuntu';
+	src: url('ubuntu/Ubuntu-C.ttf');
+	font-stretch: condensed;
+}
+
+@font-face {
+	font-family: 'Ubuntu';
+	src: url('ubuntu/Ubuntu-L.ttf');
+	font-weight: light;
+}
+
+@font-face {
+	font-family: 'Ubuntu';
+	src: url('ubuntu/Ubuntu-LI.ttf');
+	font-weight: light;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Ubuntu';
+	src: url('ubuntu/Ubuntu-M.ttf');
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: 'Ubuntu';
+	src: url('ubuntu/Ubuntu-MI.ttf');
+	font-weight: 500;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Ubuntu';
+	src: url('ubuntu/Ubuntu-R.ttf');
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'Ubuntu';
+	src: url('ubuntu/Ubuntu-RI.ttf');
+	font-weight: normal;
+	font-style: italic;
+}
+
+body {
+	font-family: 'Ubuntu';
+	text-align: center;
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+	background-color: #020202;
+	color: #fff;
+}
+
+h1 {
+	font-size: 30px;
+	line-height: 18px;
+}
+
+.button {
+	background: rgba(75,75,75,0.4);
+	border: none;
+	padding: 4px 6px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 15px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 6px;
+	-webkit-transition-duration: 0.2s;
+	transition-duration: 0.2s;
+	outline: none;
+	/*box-shadow: 2px 2px 4px #aaa;*/
+}
+
+.button:hover {
+	background: rgba(100,100,100,0.4);
+	border-radius: 4px;
+	/*box-shadow: 4px 4px 8px #c9c9c9;*/
+}
+
+.button:active {
+	background: rgba(50,50,50,0.4);
+	border-radius: 8px;
+	/*box-shadow: 1px 1px 2px #999;*/
+}
+
+.buttonStore {
+	background: rgba(75,75,75,0.4) no-repeat;
+	border: none;
+	width: 100%;
+	padding: 8.5px 6px;
+	text-align: left;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 15px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 6px;
+	-webkit-transition-duration: 0.2s;
+	transition-duration: 0.2s;
+	outline: none;
+	/*box-shadow: 2px 2px 4px #aaa;*/
+}
+
+.buttonStore:hover {
+	background: rgba(100,100,100,0.4) no-repeat;
+	border-radius: 4px;
+	/*box-shadow: 4px 4px 8px #c9c9c9;*/
+}
+
+.buttonStore:active {
+	background: rgba(50,50,50,0.4) no-repeat;
+	border-radius: 8px;
+	/*box-shadow: 1px 1px 2px #999;*/
+}
+
+#asteroidAnchor {
+	width: 200px;
+	height: 200px;
+	margin: auto;
+	position: relative;
+	display: block;
+}
+
+#asteroid {
+	position: absolute;
+	width: 184px;
+	height: 184px;
+	cursor: pointer;
+	transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+	-webkit-transition-duration: 0.75s;
+	transition-duration: 0.75s;
+	margin: auto;
+	top: -5px;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+#asteroid:hover {
+	width: 200px;
+	height: 200px;
+}
+
+#asteroid:active {
+	width: 168px;
+	height: 168px;
+}
+
+.columnLeft {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 25%;
+	bottom: 0px;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+.columnMiddle {
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	left: 25%;
+	width: 50%;
+	bottom: 0px;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+.columnRight {
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 25%;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+#goldCount {
+	position: relative;
+	left: 25%;
+	top: 8px;
+	width: 50%;
+	text-align: center;
+	z-index: 1000000000;
+	background: rgba(75,75,75,0.4);
+	padding: 6px 0px;
+	border-radius: 8px;
+	pointer-events: none;
+}
+
+div .buttonStore .amount {
+	position: absolute;
+	right: 8px;
+	margin-top: -52px;
+	font-size: 48px;
+	color: #fff;
+}
+
+moni {
+	background: url(img/goldcurrency.png) no-repeat;
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	position: relative;
+	top: 2px;
+	margin-right: 4px;
+}
+
+.storeText {
+	margin-left: 64px;
+}
+
+.buildingName {
+	font-weight: bold;
+	line-height: 28px;
+	font-size: 24px;
+}
+
+.buildingPrice, #goldPS {
+	font-weight: normal;
+}
+
+#gold {
+	font-weight: bold;
+}
