@@ -1,5 +1,6 @@
 var Game={};
 
+Game.format=1;
 Game.shapes=0;
 Game.shapesPerClick=1;
 Game.shapesPerSecond=0;
@@ -82,90 +83,93 @@ window.load=function(){
 }
 window.load()
 
-/*-----------MAKES NUMBERS PRETTY----------*/
-
-function abbreviate(number, maxPlaces, forcePlaces, forceLetter) {
-	number = Number(number)
-	forceLetter = forceLetter || false
-	if(forceLetter !== false) {
-		return annotate(number, maxPlaces, forcePlaces, forceLetter)
-	}
-	var abbr
-	if(number >= 1e27) {
-		abbr = 'Oc'
-	}
-	else if(number >= 1e24) {
-		abbr = 'Sp'
-	}
-	else if(number >= 1e21) {
-		abbr = 'Sx'
-	}
-	else if(number >= 1e18) {
-		abbr = 'Qi'
-	}
-	else if(number >= 1e15) {
-		abbr = 'Qa'
-	}
-	else if(number >= 1e12) {
-		abbr = 'T'
-	}
-	else if(number >= 1e9) {
-		abbr = 'B'
-	}
-	else if(number >= 1e6) {
-		abbr = 'M'
-	}
-	else {
-		abbr = ''
-	}
-	return annotate(number, maxPlaces, forcePlaces, abbr)
-}
-
-function annotate(number, maxPlaces, forcePlaces, abbr) {
-	var rounded = 0
-	switch(abbr) {
-		case 'Oc':
-			rounded = number / 1e27
-			break
-		case 'Sp':
-			rounded = number / 1e24
-			break
-		case 'Sx':
-			rounded = number / 1e21
-			break
-		case 'Qi':
-			rounded = number / 1e18
-			break
-		case 'Qa':
-			rounded = number / 1e15
-			break
-		case 'T':
-			rounded = number / 1e12
-			break
-		case 'B':
-			rounded = number / 1e9
-			break
-		case 'M':
-			rounded = number / 1e6
-			break
-		case '':
-			rounded = number
-			break
-	}
-	if(maxPlaces !== false) {
-		var test = new RegExp('\\.\\d{' + (maxPlaces + 1) + ',}$')
-		if(test.test(('' + rounded))) {
-			rounded = rounded.toFixed(maxPlaces)
+//Beautify and number-formatting adapted from the Frozen Cookies add-on (http://cookieclicker.wikia.com/wiki/Frozen_Cookies_%28JavaScript_Add-on%29)
+function formatEveryThirdPower(notations)
+{
+	return function (value)
+	{
+		var base = 0,
+		notationValue = '';
+		if (!isFinite(value)) return 'Infinity';
+		if (value >= 1000000)
+		{
+			value /= 1000;
+			while(Math.round(value) >= 1000)
+			{
+				value /= 1000;
+				base++;
+			}
+			if (base >= notations.length) {return 'Infinity';} else {notationValue = notations[base];}
 		}
-	}
-	if(forcePlaces !== false) {
-		rounded = Number(rounded).toFixed(forcePlaces)
-	}
-	return rounded + abbr
+		return ( Math.round(value * 1000) / 1000 ) + notationValue;
+	};
 }
 
-function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+function rawFormatter(value) {return Math.round(value * 1000) / 1000;}
+
+var formatLong=[' thousand',' million',' billion',' trillion',' quadrillion',' quintillion',' sextillion',' septillion',' octillion',' nonillion'];
+var prefixes=['','un','duo','tre','quattuor','quin','sex','septen','octo','novem'];
+var suffixes=['decillion','vigintillion','trigintillion','quadragintillion','quinquagintillion','sexagintillion','septuagintillion','octogintillion','nonagintillion'];
+for (var i in suffixes)
+{
+	for (var ii in prefixes)
+	{
+		formatLong.push(' '+prefixes[ii]+suffixes[i]);
+	}
+}
+
+var formatShort=['k','M','B','T','Qa','Qi','Sx','Sp','Oc','No'];
+var prefixes=['','Un','Do','Tr','Qa','Qi','Sx','Sp','Oc','No'];
+var suffixes=['D','V','T','Qa','Qi','Sx','Sp','O','N'];
+for (var i in suffixes)
+{
+	for (var ii in prefixes)
+	{
+		formatShort.push(' '+prefixes[ii]+suffixes[i]);
+	}
+}
+formatShort[10]='Dc';
+
+
+var numberFormatters =
+[
+	formatEveryThirdPower(formatShort),
+	formatEveryThirdPower(formatLong),
+	rawFormatter
+];
+function Beautify(value,floats)
+{
+	var negative=(value<0);
+	var decimal='';
+	var fixed=value.toFixed(floats);
+	if (Math.abs(value)<1000 && floats>0 && Math.floor(fixed)!=fixed) decimal='.'+(fixed.toString()).split('.')[1];
+	value=Math.floor(Math.abs(value));
+	if (floats>0 && fixed==value+1) value++;
+	var formatter=numberFormatters[Game.format?2:1];
+	var output=formatter(value).toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');
+	if (output=='0') negative=false;
+	return negative?'-'+output:output+decimal;
+}
+function shortenNumber(value)
+{
+	//if no scientific notation, return as is, else :
+	//keep only the 5 first digits (plus dot), round the rest
+	//may or may not work properly
+	if (value >= 1000000 && isFinite(value))
+	{
+		var num=value.toString();
+		var ind=num.indexOf('e+');
+		if (ind==-1) return value;
+		var str='';
+		for (var i=0;i<ind;i++)
+		{
+			str+=(i<6?num[i]:'0');
+		}
+		str+='e+';
+		str+=num.split('e+')[1];
+		return parseFloat(str);
+	}
+	return value;
 }
 
 /*---------------OTHER STUFF---------------*/
@@ -185,25 +189,25 @@ setInterval(timer, 40)
 
 function update(){
 	document.getElementById("geometryName").innerHTML=Game.geometryName+"'s geometry"
-	document.getElementById("shapesPerSecond").innerHTML=numberWithCommas(abbreviate(shapesPSRounded, 2, false, false))+"/s"
-	document.getElementById("spcMultiCost").innerHTML="Upgrade your cursor - "+numberWithCommas(abbreviate(Game.spcMultiCost, 2, false, false))+" Shapes"
-	document.getElementById("circleCost").innerHTML="Buy Circle - "+numberWithCommas(abbreviate(Game.circleCost, 2, false, false))+" Shapes"
-	document.getElementById("triangleCost").innerHTML="Buy Triangle - "+numberWithCommas(abbreviate(Game.triangleCost, 2, false, false))+" Shapes"
-	document.getElementById("rectangleCost").innerHTML="Buy Rectangle - "+numberWithCommas(abbreviate(Game.rectangleCost, 2, false, false))+" Shapes"
-	document.getElementById("pentagonCost").innerHTML="Buy Pentagon - "+numberWithCommas(abbreviate(Game.pentagonCost, 2, false, false))+" Shapes"
-	document.getElementById("hexagonCost").innerHTML="Buy Hexagon - "+numberWithCommas(abbreviate(Game.hexagonCost, 2, false, false))+" Shapes"
-	document.getElementById("heptagonCost").innerHTML="Buy Heptagon - "+numberWithCommas(abbreviate(Game.heptagonCost, 2, false, false))+" Shapes"
-	document.getElementById("octagonCost").innerHTML="Buy Octagon - "+numberWithCommas(abbreviate(Game.octagonCost, 2, false, false))+" Shapes"
-	document.getElementById("nonagonCost").innerHTML="Buy Nonagon - "+numberWithCommas(abbreviate(Game.nonagonCost, 2, false, false))+" Shapes"
-	document.getElementById("decagonCost").innerHTML="Buy Decagon - "+numberWithCommas(abbreviate(Game.decagonCost, 2, false, false))+" Shapes"
-	document.getElementById("hendecagonCost").innerHTML="Buy Hendecagon - "+numberWithCommas(abbreviate(Game.hendecagonCost, 2, false, false))+" Shapes"
-	document.getElementById("dodecagonCost").innerHTML="Buy Dodecagon - "+numberWithCommas(abbreviate(Game.dodecagonCost, 2, false, false))+" Shapes"
-	document.getElementById("tridecagonCost").innerHTML="Buy Tridecagon - "+numberWithCommas(abbreviate(Game.tridecagonCost, 2, false, false))+" Shapes"
-	document.getElementById("shapes").innerHTML=numberWithCommas(abbreviate(Math.trunc(Game.shapes), 2, false, false))+" Shapes"
+	document.getElementById("shapesPerSecond").innerHTML=Beautify(shapesPSRounded, 2, false, false)+"/s"
+	document.getElementById("spcMultiCost").innerHTML="Upgrade your cursor - "+Beautify(Game.spcMultiCost, 2, false, false)+" Shapes"
+	document.getElementById("circleCost").innerHTML="Buy Circle - "+Beautify(Game.circleCost, 2, false, false)+" Shapes"
+	document.getElementById("triangleCost").innerHTML="Buy Triangle - "+Beautify(Game.triangleCost, 2, false, false)+" Shapes"
+	document.getElementById("rectangleCost").innerHTML="Buy Rectangle - "+Beautify(Game.rectangleCost, 2, false, false)+" Shapes"
+	document.getElementById("pentagonCost").innerHTML="Buy Pentagon - "+Beautify(Game.pentagonCost, 2, false, false)+" Shapes"
+	document.getElementById("hexagonCost").innerHTML="Buy Hexagon - "+Beautify(Game.hexagonCost, 2, false, false)+" Shapes"
+	document.getElementById("heptagonCost").innerHTML="Buy Heptagon - "+Beautify(Game.heptagonCost, 2, false, false)+" Shapes"
+	document.getElementById("octagonCost").innerHTML="Buy Octagon - "+Beautify(Game.octagonCost, 2, false, false)+" Shapes"
+	document.getElementById("nonagonCost").innerHTML="Buy Nonagon - "+Beautify(Game.nonagonCost, 2, false, false)+" Shapes"
+	document.getElementById("decagonCost").innerHTML="Buy Decagon - "+Beautify(Game.decagonCost, 2, false, false)+" Shapes"
+	document.getElementById("hendecagonCost").innerHTML="Buy Hendecagon - "+Beautify(Game.hendecagonCost, 2, false, false)+" Shapes"
+	document.getElementById("dodecagonCost").innerHTML="Buy Dodecagon - "+Beautify(Game.dodecagonCost, 2, false, false)+" Shapes"
+	document.getElementById("tridecagonCost").innerHTML="Buy Tridecagon - "+Beautify(Game.tridecagonCost, 2, false, false)+" Shapes"
+	document.getElementById("shapes").innerHTML=Beautify(Math.trunc(Game.shapes), 2, false, false)+" Shapes"
 }
 
 function updateTitle(){
-	document.title=numberWithCommas(abbreviate((Math.trunc(Game.shapes)), 2, false, false))+" Shapes - Shape Clicker"
+	document.title=Beautify((Math.trunc(Game.shapes)), 2, false, false)+" Shapes - Shape Clicker"
 }
 setInterval(updateTitle, 1000)
 
