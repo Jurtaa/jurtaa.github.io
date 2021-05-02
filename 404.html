@@ -3,22 +3,29 @@
 
 <head>
     <meta charset="utf-8" />
-	<title>404</title>
+	<title>404 NOT FOUND</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no">
 </head>
 
-<style>html,body{font-family: Tahoma, Geneva, sans-serif; font-size: 16px;}body{max-width: 720px; padding: 20px; margin: auto;}a{color: black; text-decoration: none; font-weight: bold;}a:hover{color: #404040; text-decoration: none;}h1,h2,h3{font-weight: 500; margin-bottom: 0;}p{margin: 1em 60px; line-height: 1.5em;}header{padding: 28px; padding-bottom: 6px; text-align: center;}header h1{font-family: Tahoma, Geneva, sans-serif; line-height: 1em; font-size: 3em; font-weight: 600; margin: 0;}</style>
+<style>html,body{font-family: Arial, Helvetica, sans-serif; font-size: 16px;}
+		body{max-width: 720px; padding: 20px; margin: auto;}
+		a{color: black; text-decoration: none; font-weight: bold;}
+		a:hover{color: #404040; text-decoration: none;}
+		h1,h2,h3{font-weight: 500; margin-bottom: 0;}
+		p{margin: 1em 60px; line-height: 1.5em;}
+		header{padding: 28px; padding-bottom: 6px; text-align: center;}
+		header h1{font-family: Arial, Helvetica, sans-serif; line-height: 1em; font-size: 3em; font-weight: 600; margin: 0;}</style>
 
 <body>
 	<header id="header">
 		<h1>404</h1>
 	</header>
-	<p id="fileName">There's no such thing, sorry bud.</p>
-	<p>Try checking if you've misspelled something or if the page has moved.</p>
+	<p id="fileName">Unfortunately, this page could not be located.</p>
+	<p>Please try checking if you've misspelled the url or if the page has moved.</p>
 	<p><a href="javascript:history.go(-1)">Return</a></p>
 
 	<script>
-		document.getElementById("fileName").innerHTML = "There's no such thing as " + window.location.pathname + ", sorry bud.";
+		document.getElementById("fileName").innerHTML = "Unfortunately, " + window.location.pathname + " could not be located.";
 	</script>
 </body>
 

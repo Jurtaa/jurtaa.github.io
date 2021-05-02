@@ -1,5 +1,5 @@
 html, body{
-    font-family: Tahoma, Geneva, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
 }
 
@@ -73,7 +73,7 @@ header{
 }
 
 header h1{
-    font-family: Tahoma, Geneva, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     line-height: 1em;
     font-size: 3em;
     font-weight: 600;
@@ -132,7 +132,7 @@ a li.game_banner .description{
 }
 
 li.game_banner .description h2{
-	font-family: Tahoma, Geneva, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	margin: 0.6ex 0;
 	font-weight: bold;
 }
@@ -150,5 +150,5 @@ li.game_banner .description p{
 }
 
 a:hover li.game_banner .description{
-	top: 20%;
+	top: 40%;
 }
