@@ -80,6 +80,10 @@ body {
 	transform: translate(-50%, -50%);
 }
 
+.textdrop {
+	text-shadow: rgb(0 0 0 / 50%) 0rem 0.35rem 0.5rem;
+}
+
 .dir li {
 	list-style-image: url(resources/img/dirarrow.svg);
 } 
