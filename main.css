@@ -1,9 +1,79 @@
-html.darkbg {
-	background-color: #000;
-	color: #fff;
+@font-face {
+	font-family: "Ubuntu";
+	src: url("/resources/font/ubuntu/Ubuntu-B.ttf");
+	font-weight: bold;
 }
 
-div.center {
+@font-face {
+	font-family: "Ubuntu";
+	src: url("/resources/font/ubuntu/Ubuntu-BI.ttf");
+	font-weight: bold;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: "Ubuntu";
+	src: url("/resources/font/ubuntu/Ubuntu-C.ttf");
+	font-stretch: condensed;
+}
+
+@font-face {
+	font-family: "Ubuntu";
+	src: url("/resources/font/ubuntu/Ubuntu-L.ttf");
+	font-weight: light;
+}
+
+@font-face {
+	font-family: "Ubuntu";
+	src: url("/resources/font/ubuntu/Ubuntu-LI.ttf");
+	font-weight: light;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: "Ubuntu";
+	src: url("/resources/font/ubuntu/Ubuntu-M.ttf");
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: "Ubuntu";
+	src: url("/resources/font/ubuntu/Ubuntu-MI.ttf");
+	font-weight: 500;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: "Ubuntu";
+	src: url("/resources/font/ubuntu/Ubuntu-R.ttf");
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "Ubuntu";
+	src: url("/resources/font/ubuntu/Ubuntu-RI.ttf");
+	font-weight: normal;
+	font-style: italic;
+}
+
+body {
+	background-image: linear-gradient(232deg, rgb(89, 50, 72) 0%, rgb(36, 47, 87) 100%); 
+	background-position: center;
+	background-attachment: fixed;
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: white;
+	text-align: center;
+	font-family: "Ubuntu", sans-serif;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.container .center {
 	position: absolute;
 	left: 50%;
 	top: 50%;
