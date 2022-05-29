@@ -86,6 +86,7 @@ body {
 
 .dir li {
 	list-style-image: url(resources/img/dirarrow.svg);
+	text-align: left; # bypass body assignment
 } 
 
 ul.dir, .dir ul {
