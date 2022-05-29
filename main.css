@@ -57,7 +57,7 @@
 }
 
 body {
-	background-image: linear-gradient(232deg, rgb(89, 50, 72) 0%, rgb(36, 47, 87) 100%); 
+	background-image: linear-gradient(232deg, rgb(105, 52, 80) 0%, rgb(35, 48, 90) 100%); 
 	background-position: center;
 	background-attachment: fixed;
 	background-size: cover;
@@ -73,15 +73,19 @@ body {
     margin: 0;
 }
 
-.container .center {
+.center {
 	position: absolute;
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
 }
 
-.textdrop {
+.tshadow {
 	text-shadow: rgb(0 0 0 / 50%) 0rem 0.35rem 0.5rem;
+}
+
+.bshadow {
+	box-shadow: rgb(0 0 0 / 50%) 0rem 0.35rem 0.5rem;
 }
 
 .textalign-left {
@@ -118,14 +122,54 @@ a:active {
 
 .footer {
   position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   left: 0;
   bottom: 0;
   width: 100%;
   background-image: linear-gradient(180deg, rgba(0%, 0%, 0%, 40%) 0%, rgba(0%, 0%, 0%, 20%) 100%);
   text-align: center;
   z-index: 999;
+  height: 48px;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
 }
 
 .footer-content {
+  line-height: 10px;
   padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 40px;
+      width: 40px;
+	margin: 0 2px;
+	border-radius: 4px;
+	background-color: rgba(255, 255, 255, 0);
+      box-shadow: unset;
+	user-select: none;
+	transition: 0.1s;
+}
+
+.social-button img {
+	height: 24px;
+      width: 24px;
+	pointer-events: none;
+}
+
+.social-button:hover {
+	background-color: rgba(255, 255, 255, 0.1);
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.social-button:active {
+	background-color: rgba(200, 200, 200, 0.1);
+      box-shadow: unset;
 }
