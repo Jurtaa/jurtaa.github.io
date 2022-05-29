@@ -84,9 +84,12 @@ body {
 	text-shadow: rgb(0 0 0 / 50%) 0rem 0.35rem 0.5rem;
 }
 
+.textalign-left {
+	text-align: left; # bypass body assignment
+}
+
 .dir li {
 	list-style-image: url(resources/img/dirarrow.svg);
-	text-align: left; # bypass body assignment
 } 
 
 ul.dir, .dir ul {
