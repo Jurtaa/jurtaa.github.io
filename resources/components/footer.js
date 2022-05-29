@@ -3,7 +3,7 @@ const footer = document.createElement('template');
 footer.innerHTML = `
 	<div class="footer">
 		<div class="tshadow copyright">
-			<p>© Jurta 2022</p>
+			<p>© 2022 Jurta</p>
 		</div>
 		<div class="footer-content">
 			<a href="https://youtube.com/Jurta" target="_blank" rel="noopener noreferrer">
