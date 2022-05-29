@@ -115,3 +115,17 @@ a:active {
   color: #5454E6;
   text-decoration: none;
 }
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-image: linear-gradient(180deg, rgba(0%, 0%, 0%, 40%) 0%, rgba(0%, 0%, 0%, 20%) 100%);
+  text-align: center;
+  z-index: 999;
+}
+
+.footer-content {
+  padding: 0 10px;
+}
