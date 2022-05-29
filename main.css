@@ -91,3 +91,23 @@ body {
 ul.dir, .dir ul {
 	padding-left: 1.5em;
 }
+
+a:link {
+  color: #6E6EE6;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #86B;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #7E7EE7;
+  text-decoration: none;
+}
+
+a:active {
+  color: #5454E6;
+  text-decoration: none;
+}
