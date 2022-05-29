@@ -65,19 +65,21 @@ body {
 	color: white;
 	text-align: center;
 	font-family: "Ubuntu", sans-serif;
+	height: 100vh;
+	margin: 0;
 }
 
 .container {
     width: 100%;
     height: 100%;
-    margin: 0;
 }
 
 .center {
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
+	min-height: calc(100% - 48px);
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
 }
 
 .tshadow {
@@ -86,6 +88,12 @@ body {
 
 .bshadow {
 	box-shadow: rgb(0 0 0 / 50%) 0rem 0.35rem 0.5rem;
+}
+
+.copyright {
+	position: absolute;
+	bottom: calc(30px + 6px);
+	right: 6px;
 }
 
 .textalign-left {
