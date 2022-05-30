@@ -6,18 +6,24 @@ footer.innerHTML = `
 			<p>© 2022 Jurta</p>
 		</div>
 		<div class="footer-content">
-			<a href="https://youtube.com/Jurta" target="_blank" rel="noopener noreferrer">
-				<div class="social-button">
+			<a href="/autism.gif" target="_blank" rel="noopener noreferrer" class="nopointer">
+				<div class="tbbutton">
+					<img src="resources/img/autism.gif"></img>
+				</div>
+			</a>
+			<div class="tbseperate"></div>
+			<a href="https://youtube.com/Jurta" target="_blank" rel="noopener noreferrer" class="nopointer">
+				<div class="tbbutton">
 					<img src="resources/img/socials/youtube.svg"></img>
 				</div>
 			</a>
-			<a href="https://twitter.com/Jurta_" target="_blank" rel="noopener noreferrer">
-				<div class="social-button">
+			<a href="https://twitter.com/Jurta_" target="_blank" rel="noopener noreferrer" class="nopointer">
+				<div class="tbbutton">
 					<img src="resources/img/socials/twitter.svg"></img>
 				</div>
 			</a>
-			<a href="https://github.com/Jurtaa" target="_blank" rel="noopener noreferrer">
-				<div class="social-button">
+			<a href="https://github.com/Jurtaa" target="_blank" rel="noopener noreferrer" class="nopointer">
+				<div class="tbbutton">
 					<img src="resources/img/socials/github.svg"></img>
 				</div>
 			</a>
