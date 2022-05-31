@@ -1,3 +1,4 @@
+/* Ubuntu setup */
 @font-face {
 	font-family: "Ubuntu";
 	src: url("/resources/font/ubuntu/Ubuntu-B.ttf");
@@ -55,13 +56,13 @@
 	font-weight: normal;
 	font-style: italic;
 }
-
+/* User-interface */
 html {
 	user-select: none;
 }
 
 body {
-	background-image: linear-gradient(320deg, rgb(105, 52, 80) 0%, rgb(35, 48, 90) 100%); 
+	background-image: linear-gradient(320deg, rgb(105, 52, 80) 0%, rgb(35, 48, 90) 100%);
 	background-position: center;
 	background-attachment: fixed;
 	background-size: cover;
@@ -74,8 +75,8 @@ body {
 }
 
 #container {
-    width: 100%;
-    height: 100%;
+	width: 100%;
+	height: 100%;
 }
 
 .center {
@@ -103,60 +104,62 @@ body {
 }
 
 .textalign-left {
-	text-align: left; # bypass body assignment
+	text-align: left;
+	/* bypass body assignment */
 }
 
 .dir li {
 	list-style-image: url(resources/img/dirarrow.svg);
-} 
+}
 
-ul.dir, .dir ul {
+ul.dir,
+.dir ul {
 	padding-left: 1.5em;
 }
 
 a:link {
-  color: #6E6EE6;
-  text-decoration: none;
+	color: #6E6EE6;
+	text-decoration: none;
 }
 
 a:visited {
-  color: #86B;
-  text-decoration: none;
+	color: #86B;
+	text-decoration: none;
 }
 
 a:hover {
-  color: #7E7EE7;
-  text-decoration: none;
+	color: #7E7EE7;
+	text-decoration: none;
 }
 
 a:active {
-  color: #5454E6;
-  text-decoration: none;
+	color: #5454E6;
+	text-decoration: none;
 }
 
 .footer {
-  position: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-image: linear-gradient(180deg, rgba(0%, 0%, 0%, 40%) 0%, rgba(0%, 0%, 0%, 20%) 100%);
-  text-align: center;
-  z-index: 999;
-  height: 48px;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15);
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
+	position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-image: linear-gradient(180deg, rgba(0%, 0%, 0%, 40%) 0%, rgba(0%, 0%, 0%, 20%) 100%);
+	text-align: center;
+	z-index: 99998;
+	height: 48px;
+	box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15);
+	-webkit-backdrop-filter: blur(5px);
+	backdrop-filter: blur(5px);
 }
 
 .footer-content {
-  line-height: 10px;
-  padding: 0 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	line-height: 10px;
+	padding: 0 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .tbbutton {
@@ -164,28 +167,28 @@ a:active {
 	align-items: center;
 	justify-content: center;
 	height: 40px;
-      width: 40px;
+	width: 40px;
 	margin: 0 2px;
 	border-radius: 4px;
 	background-color: rgba(255, 255, 255, 0);
-      box-shadow: unset;
+	box-shadow: unset;
 	transition: 0.1s;
 }
 
 .tbbutton img {
 	height: 24px;
-      width: 24px;
+	width: 24px;
 	pointer-events: none;
 }
 
 .tbbutton:hover {
 	background-color: rgba(255, 255, 255, 0.1);
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+	box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
 }
 
 .tbbutton:active {
 	background-color: rgba(200, 200, 200, 0.1);
-      box-shadow: unset;
+	box-shadow: unset;
 }
 
 .tbseperate {
@@ -193,12 +196,31 @@ a:active {
 	align-items: center;
 	justify-content: center;
 	height: 40px;
-      width: 2px;
+	width: 2px;
 	margin: 0 2px;
 	border-radius: 2px;
 	background-color: rgba(255, 255, 255, 0.1);
 }
 
-a.nopointer, a.nopointer:hover, a.nopointer:active {
+a.nopointer,
+a.nopointer:hover,
+a.nopointer:active {
 	cursor: default;
+}
+
+.tooltip {
+	width: auto;
+	height: auto;
+	opacity: 0;
+	position: fixed;
+	background: rgba(0%, 0%, 0%, 40%);
+	box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1), rgb(0 0 0 / 50%) 0rem 0.35rem 0.5rem;
+	padding: 8px 12px;
+	margin: 0;
+	border-radius: 4px;
+	font-size: 12px;
+	-webkit-backdrop-filter: blur(5px);
+	backdrop-filter: blur(5px);
+	pointer-events: none;
+	z-index: 99999;
 }
