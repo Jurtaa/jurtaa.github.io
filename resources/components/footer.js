@@ -5,30 +5,40 @@ footer.innerHTML = `
 		<div class="tshadow copyright">
 			<p>© 2022 Jurta</p>
 		</div>
-		<div class="footer-content">
-			<a href="/autism.gif" target="_blank" rel="noopener noreferrer" class="nopointer">
-				<div class="tbbutton hover-reveal" data-tooltip="discord embed trick thing :)">
-					<img src="resources/img/autism.gif"></img>
-				</div>
-			</a>
-			<div class="tbseperate"></div>
-			<a href="https://youtube.com/Jurta" target="_blank" rel="noopener noreferrer" class="nopointer">
-				<div class="tbbutton hover-reveal" data-tooltip="YouTube">
-					<img src="resources/img/socials/youtube.svg"></img>
-				</div>
-			</a>
-			<a href="https://twitter.com/Jurta_" target="_blank" rel="noopener noreferrer" class="nopointer">
-				<div class="tbbutton hover-reveal" data-tooltip="Twitter">
-					<img src="resources/img/socials/twitter.svg"></img>
-				</div>
-			</a>
-			<a href="https://github.com/Jurtaa" target="_blank" rel="noopener noreferrer" class="nopointer">
-				<div class="tbbutton hover-reveal" data-tooltip="GitHub">
-					<img src="resources/img/socials/github.svg"></img>
-				</div>
-			</a>
-		</div>
+		<div id="footer-content"></div>
 	</div>
 `;
 
 document.getElementById("container").appendChild(footer.content);
+
+function registerButton(link, tooltip, image) {
+	const aTag = document.createElement('a');
+	aTag.href = link;
+	aTag.target = "_blank";
+	aTag.rel = "noopener noreferrer";
+	aTag.className = "nopointer";
+
+	const buttonTag = document.createElement('div');
+	buttonTag.className = "tbbutton hover-reveal";
+	buttonTag.dataset.tooltip = tooltip;
+
+	const imgTag = document.createElement('img');
+	imgTag.src = image;
+
+	buttonTag.appendChild(imgTag);
+	aTag.appendChild(buttonTag);
+	document.getElementById("footer-content").appendChild(aTag);
+};
+
+function registerSeperator() {
+	const seperate = document.createElement('div');
+	seperate.className = "tbseperate";
+
+	document.getElementById("footer-content").appendChild(seperate);
+}
+
+registerButton("/autism.gif", "discord embed trick thing :)", "/resources/img/autism.gif");
+registerSeperator();
+registerButton("https://youtube.com/Jurta", "YouTube", "/resources/img/socials/youtube.svg");
+registerButton("https://twitter.com/Jurta_", "Twitter", "/resources/img/socials/twitter.svg");
+registerButton("https://github.com/Jurtaa", "GitHub", "/resources/img/socials/github.svg");
