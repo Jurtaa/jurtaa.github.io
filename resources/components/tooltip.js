@@ -13,8 +13,8 @@ let setupTooltip = function() {
 		timer;
 	
 	let positionTooltip = function(e) {
-		var x = e.pageX,
-			y = e.pageY,
+		var x = e.clientX,
+			y = e.clientY,
 			width = tooltipDiv.clientWidth,
 			height = tooltipDiv.clientHeight;
 		
