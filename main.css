@@ -98,12 +98,9 @@ body {
 
 .intro {
 	letter-spacing: -0.15rem;
-	background-image: linear-gradient(320deg, rgb(243, 201, 223) 0%, rgb(161, 179, 245) 100%);
+	color: white;
 	font-size: 40px;
 	font-weight: bold;
-	color: transparent;
-	-webkit-background-clip: text;
-	background-clip: text;
 }
 
 .copyright {
