@@ -96,6 +96,16 @@ body {
 	box-shadow: rgb(0 0 0 / 50%) 0rem 0.35rem 0.5rem;
 }
 
+.intro {
+	letter-spacing: -0.15rem;
+	background-image: linear-gradient(320deg, rgb(243, 201, 223) 0%, rgb(161, 179, 245) 100%);
+	font-size: 40px;
+	font-weight: bold;
+	color: transparent;
+	-webkit-background-clip: text;
+	background-clip: text;
+}
+
 .copyright {
 	position: absolute;
 	bottom: calc(30px + 6px);
