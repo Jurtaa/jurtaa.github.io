@@ -7,7 +7,7 @@ footer.innerHTML = `
 		</div>
 		<div class="footer-content">
 			<a href="/autism.gif" target="_blank" rel="noopener noreferrer" class="nopointer">
-				<div class="tbbutton hover-reveal" data-tooltip="discord gif trick thing :)">
+				<div class="tbbutton hover-reveal" data-tooltip="discord embed trick thing :)">
 					<img src="resources/img/autism.gif"></img>
 				</div>
 			</a>
