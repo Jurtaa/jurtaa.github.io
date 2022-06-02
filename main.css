@@ -80,6 +80,7 @@ body {
 }
 
 .center {
+	padding-bottom: 48px;
 	min-height: calc(100% - 48px);
 	display: flex;
 	align-items: center;
