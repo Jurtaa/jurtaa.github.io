@@ -99,6 +99,7 @@ body {
 
 .intro {
 	letter-spacing: -0.15rem;
+	line-height: 0;
 	color: white;
 	font-size: 40px;
 	font-weight: bold;
